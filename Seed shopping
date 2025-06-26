@@ -1,0 +1,51 @@
+import pyautogui
+
+
+## Navigation Function for within seed shop
+def seed_buy_nav(selected, crop_name=""):
+    if selected:
+        print(f"Buying {crop_name} seeds")
+        press('enter')
+        press('s')
+        press('enter')
+    press('s')  # Always move to the next item
+
+def seed_shop(Carrot=False, Strawberry=False, Blueberry=False, Tomato=False, Cauliflower=False,
+              Watermelon=False, Green_apple=False, Avocado=False, Banana=False, Pineapple=False,
+              Kiwi=False, Bellpepper=False, Prickly_pear=False, Loquaat=False, Feijoa=False, Sugar_apple=False):
+    
+    ## Teleport to seed shop
+    press('\\')
+    press('D')
+    press('D')
+    press('D')
+    press('enter')
+
+    ## Open seed shop
+    press('e')
+    press('s')
+
+    ## Navigate seeds and buy based on which seeds we are buying (only buys once)
+    seed_buy_nav(Carrot, "Carrot")
+    seed_buy_nav(Strawberry, "Strawberry")
+    seed_buy_nav(Blueberry, "Blueberry")
+    seed_buy_nav(Tomato, "Tomato")
+    seed_buy_nav(Cauliflower, "Cauliflower")
+    seed_buy_nav(Watermelon, "Watermelon")
+    seed_buy_nav(Green_apple, "Green Apple")
+    seed_buy_nav(Avocado, "Avocado")
+    seed_buy_nav(Banana, "Banana")
+    seed_buy_nav(Pineapple, "Pineapple")
+    seed_buy_nav(Kiwi, "Kiwi")
+    seed_buy_nav(Bellpepper, "Bell Pepper")
+    seed_buy_nav(Prickly_pear, "Prickly Pear")
+    seed_buy_nav(Loquaat, "Loquaat")
+    seed_buy_nav(Feijoa, "Feijoa")
+    seed_buy_nav(Sugar_apple, "Sugar Apple")
+
+    ##Reset for new function
+    press('\\')
+    pyautogui.moveTo(1313, 253) #Coordinates for exit button on my monitor
+
+
+seed_shop(Carrot=True, Pineapple=True)
