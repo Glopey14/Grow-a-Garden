@@ -1,29 +1,31 @@
 import pyautogui
+import time
 
+pyautogui.PAUSE = 1 #one second pause between each pyautogui call
 
 ## Navigation Function for within seed shop
 def seed_buy_nav(selected, crop_name=""):
     if selected:
         print(f"Buying {crop_name} seeds")
-        press('enter')
-        press('s')
-        press('enter')
-    press('s')  # Always move to the next item
+        pyautogui.press('enter')
+        pyautogui.press('s')
+        pyautogui.press('enter')
+    pyautogui.press('s')  # Always move to the next item
 
 def seed_shop(Carrot=False, Strawberry=False, Blueberry=False, Tomato=False, Cauliflower=False,
               Watermelon=False, Green_apple=False, Avocado=False, Banana=False, Pineapple=False,
               Kiwi=False, Bellpepper=False, Prickly_pear=False, Loquaat=False, Feijoa=False, Sugar_apple=False):
     
     ## Teleport to seed shop
-    press('\\')
-    press('D')
-    press('D')
-    press('D')
-    press('enter')
+    pyautogui.press('\\')
+    pyautogui.press('d')
+    pyautogui.press('d')
+    pyautogui.press('d')
+    pyautogui.press('enter')
 
     ## Open seed shop
-    press('e')
-    press('s')
+    pyautogui.press('e')
+    pyautogui.press('s')
 
     ## Navigate seeds and buy based on which seeds we are buying (only buys once)
     seed_buy_nav(Carrot, "Carrot")
@@ -44,8 +46,8 @@ def seed_shop(Carrot=False, Strawberry=False, Blueberry=False, Tomato=False, Cau
     seed_buy_nav(Sugar_apple, "Sugar Apple")
 
     ##Reset for new function
-    press('\\')
+    pyautogui.press('\\')
     pyautogui.moveTo(1313, 253) #Coordinates for exit button on my monitor
 
-
+time.sleep(2)
 seed_shop(Carrot=True, Pineapple=True)
